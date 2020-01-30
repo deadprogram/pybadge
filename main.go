@@ -68,6 +68,8 @@ func main() {
 		status: START,
 	}
 
+	Flappy()
+	
 	for {
 		switch menu() {
 		case 0:

@@ -19,12 +19,22 @@ const (
 	BLACK = iota
 	WHITE
 	RED
+	SKY
+	GREEN
+	DARKGREEN
+	BROWN
+	DARKBROWN
 )
 
 var colors = []color.RGBA{
 	color.RGBA{0, 0, 0, 255},
 	color.RGBA{255, 255, 255, 255},
 	color.RGBA{255, 0, 0, 255},
+	color.RGBA{153, 204, 255, 255}, // SKY BLUE
+	color.RGBA{51, 204, 51, 255},   // GREEN
+	color.RGBA{0, 51, 0, 255},      // DARK GREEN
+	color.RGBA{153, 102, 51, 255},  // BROWN
+	color.RGBA{102, 51, 0, 255},    // DARKBROWN
 }
 
 var rainbow []color.RGBA
@@ -162,7 +172,7 @@ func scroll(topline, middleline, bottomline string) {
 
 	display.SetScrollArea(0, 0)
 	for k := 0; k < 4; k++ {
-		for i := int16(159); i >=0; i-- {
+		for i := int16(159); i >= 0; i-- {
 
 			pressed, _ = buttons.Read8Input()
 			if pressed&machine.BUTTON_SELECT_MASK > 0 {
