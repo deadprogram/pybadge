@@ -45,7 +45,7 @@ func Badge() {
 		if quit {
 			break
 		}
-		myNameIsRainbow("@francesc")
+		myNameIsRainbow("@carmatrocity")
 		if quit {
 			break
 		}
