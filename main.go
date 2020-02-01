@@ -19,7 +19,8 @@ var buttons shifter.Device
 var leds ws2812.Device
 var bzr buzzer.Device
 var accel lis3dh.Device
-var snakeGame Game
+var snakeGame SnakeGame
+var flappyGame FlappyGame
 
 func main() {
 	machine.SPI1.Configure(machine.SPIConfig{
@@ -47,7 +48,7 @@ func main() {
 	neo.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	leds = ws2812.New(neo)
 
-	snakeGame = Game{
+	snakeGame = SnakeGame{
 		colors: []color.RGBA{
 			color.RGBA{0, 0, 0, 255},
 			color.RGBA{0, 200, 0, 255},
@@ -68,8 +69,10 @@ func main() {
 		status: START,
 	}
 
-	Flappy()
-	
+	flappyGame = FlappyGame{}
+
+	flappyGame.Start()
+
 	for {
 		switch menu() {
 		case 0:
@@ -83,6 +86,9 @@ func main() {
 			break
 		case 3:
 			Accel3D()
+			break
+		case 4:
+			flappyGame.Start()
 			break
 		default:
 			break

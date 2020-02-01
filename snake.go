@@ -35,14 +35,14 @@ type Snake struct {
 	direction int16
 }
 
-type Game struct {
+type SnakeGame struct {
 	colors         []color.RGBA
 	snake          Snake
 	appleX, appleY int16
 	status         uint8
 }
 
-func (game *Game) Start() {
+func (game *SnakeGame) Start() {
 	game.status = START
 	scoreStr := []byte("SCORE: 123")
 	display.FillScreen(game.colors[BCK])
@@ -142,7 +142,7 @@ func (game *Game) Start() {
 	}
 }
 
-func (g *Game) collisionWithSnake(x, y int16) bool {
+func (g *SnakeGame) collisionWithSnake(x, y int16) bool {
 	for i := int16(0); i < g.snake.length; i++ {
 		if x == g.snake.body[i][0] && y == g.snake.body[i][1] {
 			return true
@@ -151,7 +151,7 @@ func (g *Game) collisionWithSnake(x, y int16) bool {
 	return false
 }
 
-func (g *Game) createApple() {
+func (g *SnakeGame) createApple() {
 	g.appleX = int16(rand.Int31n(16))
 	g.appleY = int16(rand.Int31n(13))
 	for g.collisionWithSnake(g.appleX, g.appleY) {
@@ -161,7 +161,7 @@ func (g *Game) createApple() {
 	g.drawSnakePartial(g.appleX, g.appleY, g.colors[APPLE])
 }
 
-func (g *Game) moveSnake() {
+func (g *SnakeGame) moveSnake() {
 	x := g.snake.body[0][0]
 	y := g.snake.body[0][1]
 
@@ -213,13 +213,13 @@ func (g *Game) moveSnake() {
 	g.snake.body[0][1] = y
 }
 
-func (g *Game) drawSnake() {
+func (g *SnakeGame) drawSnake() {
 	for i := int16(0); i < g.snake.length; i++ {
 		g.drawSnakePartial(g.snake.body[i][0], g.snake.body[i][1], g.colors[SNAKE])
 	}
 }
 
-func (g *Game) drawSnakePartial(x, y int16, c color.RGBA) {
+func (g *SnakeGame) drawSnakePartial(x, y int16, c color.RGBA) {
 	modY := int16(9)
 	if y == 12 {
 		modY = 8
