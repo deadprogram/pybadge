@@ -45,26 +45,14 @@ func Badge() {
 		if quit {
 			break
 		}
-		myNameIsRainbow("@maartjeme")
+		myNameIsRainbow("@francesc")
 		if quit {
 			break
 		}
-		// blinkyRainbow("technologist", "FOR HIRE")
-		// if quit {
-		// 	break
-		// }
-		scroll("Go Dev Room", "9:00 Sun.", "UB2.252A")
+		scroll("Go devroom", "9:00 Sun.", "UB2.252A")
 		if quit {
 			break
 		}
-		// scroll("@_conejo", "10:30 Sun.", "Go devroom")
-		// if quit {
-		// 	break
-		// }
-		// scroll("My talk", "16:00 Sun.", "IoT devroom")
-		// if quit {
-		// 	break
-		// }
 	}
 }
 
