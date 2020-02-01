@@ -45,11 +45,23 @@ func Badge() {
 		if quit {
 			break
 		}
+		myNameIsRainbow("@deadprogram")
+		if quit {
+			break
+		}
 		blinkyRainbow("technologist", "FOR HIRE")
 		if quit {
 			break
 		}
-		myNameIsRainbow("@_conejo")
+		scroll("TinyGo BoF", "11:00 Sat.", "J.1.106")
+		if quit {
+			break
+		}
+		scroll("@_conejo", "10:30 Sun.", "Go devroom")
+		if quit {
+			break
+		}
+		scroll("My talk", "16:00 Sun.", "IoT devroom")
 		if quit {
 			break
 		}
@@ -97,7 +109,7 @@ func myNameIsRainbow(name string) {
 	myNameIs(name)
 
 	w32, _ := tinyfont.LineWidth(&fonts.Bold9pt7b, []byte(name))
-	for i := 0; i < 230; i++ {
+	for i := 0; i < 120; i++ {
 		tinyfont.WriteLineColors(&display, &fonts.Bold9pt7b, (WIDTH-int16(w32))/2, 72, []byte(name), rainbow[i:])
 		pressed, _ = buttons.Read8Input()
 		if pressed&machine.BUTTON_SELECT_MASK > 0 {
@@ -162,7 +174,7 @@ func scroll(topline, middleline, bottomline string) {
 
 	display.SetScrollArea(0, 0)
 	for k := 0; k < 4; k++ {
-		for i := int16(159); i >=0; i-- {
+		for i := int16(159); i >= 0; i-- {
 
 			pressed, _ = buttons.Read8Input()
 			if pressed&machine.BUTTON_SELECT_MASK > 0 {
