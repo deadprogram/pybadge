@@ -45,11 +45,11 @@ func Badge() {
 		if quit {
 			break
 		}
-		myNameIsRainbow("@deadprogram")
+		myNameIsRainbow("Salvador")
 		if quit {
 			break
 		}
-		blinkyRainbow("technologist", "FOR HIRE")
+		blinkyRainbow("Son of", "deadprogram")
 		if quit {
 			break
 		}
