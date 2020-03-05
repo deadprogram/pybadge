@@ -53,15 +53,7 @@ func Badge() {
 		if quit {
 			break
 		}
-		scroll("TinyGo BoF", "11:00 Sat.", "J.1.106")
-		if quit {
-			break
-		}
-		scroll("@_conejo", "10:30 Sun.", "Go devroom")
-		if quit {
-			break
-		}
-		scroll("My talk", "16:00 Sun.", "IoT devroom")
+		scroll("Workshop", "3:00 Sun.", "Room 103")
 		if quit {
 			break
 		}
